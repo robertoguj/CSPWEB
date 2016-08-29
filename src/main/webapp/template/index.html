@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Paper - Material Admin Theme</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="description" content="Paper - Material Admin Theme">
+    <meta name="author" content="KaijuThemes">
+
+    <link rel="shortcut icon" href="logo-icon-dark.png" tppabs="http://paper.kaijuthemes.com/assets/img/logo-icon-dark.png">
+
+
+    <link type='text/css'  href="icon-family=Material+Icons.css" tppabs="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet"> 
+
+
+    <link href="styles.css" tppabs="http://paper.kaijuthemes.com/assets/css/styles.css" type="text/css" rel="stylesheet">                                     <!-- Core CSS with all styles -->
+
+    <link href="prettify.css" tppabs="http://paper.kaijuthemes.com/assets/plugins/codeprettifier/prettify.css" type="text/css" rel="stylesheet">                <!-- Code Prettifier -->
+
+    <link href="jquery.dropdown.css" tppabs="http://paper.kaijuthemes.com/assets/plugins/dropdown.js/jquery.dropdown.css" type="text/css" rel="stylesheet">            <!-- iCheck -->
+    <link href="skylo.css" tppabs="http://paper.kaijuthemes.com/assets/plugins/progress-skylo/skylo.css" type="text/css" rel="stylesheet">                   <!-- Skylo -->
+
+    <!--[if lt IE 10]>
+        <script src="media.match.min.js" tppabs="http://paper.kaijuthemes.com/assets/js/media.match.min.js"></script>
+        <script src="respond.min.js" tppabs="http://paper.kaijuthemes.com/assets/js/respond.min.js"></script>
+        <script src="placeholder.min.js" tppabs="http://paper.kaijuthemes.com/assets/js/placeholder.min.js"></script>
+    <![endif]-->
+    <!-- The following CSS are included as plugins and can be removed if unused-->
+    
+<link href="daterangepicker-bs3.css" tppabs="http://paper.kaijuthemes.com/assets/plugins/form-daterangepicker/daterangepicker-bs3.css" type="text/css" rel="stylesheet">    <!-- DateRangePicker -->
+<link href="fullcalendar.css" tppabs="http://paper.kaijuthemes.com/assets/plugins/fullcalendar/fullcalendar.css" type="text/css" rel="stylesheet">                   <!-- FullCalendar -->
+<link href="jquery-jvectormap-2.0.2.css" tppabs="http://paper.kaijuthemes.com/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.css" type="text/css" rel="stylesheet">
+<link href="card.less" tppabs="http://paper.kaijuthemes.com/assets/less/card.less" type="text/css" rel="stylesheet"> 
+
+<link href="chartist.min.css" tppabs="http://paper.kaijuthemes.com/assets/plugins/chartist/dist/chartist.min.css" type="text/css" rel="stylesheet"> <!-- chartist -->
+
+    </head>
+
+    <body class="animated-content infobar-overlay">
+        
+        
+<header id="topnav" class="navbar navbar-default navbar-fixed-top" role="banner">
+
+	<div class="logo-area">
+		<a class="navbar-brand" href="index.html">
+			<img class="show-on-collapse" alt="Paper" src="logo-icon-csp.jpg"> <img alt="Paper" src="logo-csp.jpg" >
+		</a>
+
+		<span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg stay-on-search">
+			<a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar">
+				<span class="icon-bg">
+					<i class="material-icons">menu</i>
+				</span>
+			</a>
+		</span>
+		<span id="trigger-search" class="toolbar-trigger toolbar-icon-bg ov-h">
+			<a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar">
+				<span class="icon-bg">
+					<i class="material-icons">search</i>
+				</span>
+			</a>
+		</span>
+		<div id="search-box">
+			<input class="form-control" type="text" placeholder="Search..." id="search-input"></input>
+		</div>
+	</div><!-- logo-area -->
+
+	<ul class="nav navbar-nav toolbar pull-right">
+
+		<li class="toolbar-icon-bg appear-on-search ov-h" id="trigger-search-close">
+	        <a class="toggle-fullscreen"><span class="icon-bg">
+	        	<i class="material-icons">close</i>
+	        </span></i></a>
+	    </li>
+		<li class="toolbar-icon-bg hidden-xs" id="trigger-fullscreen">
+	        <a href="#" class="toggle-fullscreen"><span class="icon-bg">
+	        	<i class="material-icons">fullscreen</i>
+	        </span></i></a>
+	    </li>
+		<li class="toolbar-icon-bg">
+			<a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar">
+				<span class="icon-bg">
+					<i class="material-icons">exit_to_app</i>
+				</span>
+			</a>
+		</li>
+		
+	</ul>
+
+</header>
+
+        <div id="wrapper">
+            <div id="layout-static">
+                <div class="static-sidebar-wrapper sidebar-blue">
+                    <div class="static-sidebar">
+                        <div class="sidebar">
+	<!--
+	<div class="widget" id="widget-profileinfo">
+        <div class="widget-body">
+            
+			<div class="userinfo ">
+				<div class="avatar pull-left">
+                    <img src="avatar_15.png" tppabs="http://paper.kaijuthemes.com/assets/demo/avatar/avatar_15.png" class="img-responsive img-circle"> 
+                </div>
+				<div class="info">
+                    <span class="username">Jonathan Smith</span>
+                    <span class="useremail">jon@paperadmin.com</span>
+                </div>
+                <div class="acct-dropdown clearfix dropdown">
+                    <span class="pull-left"><span class="online-status online"></span>Online</span>
+                    <!-- <span class="pull-right dropdown-toggle" data-toggle="dropdown"><a href="javascript:void(0)" class="btn btn-fab-caret btn-xs btn-fab"><i class="material-icons">arrow_drop_down</i><div class="ripple-container"></div></a></span>
+                    <ul class="dropdown-menu">
+                        <li><span class="online-status online"></span> Online</li>
+                        <li><span class="online-status online"></span> Online</li>
+                        <li><span class="online-status online"></span> Online</li>
+                        <li><span class="online-status online"></span> Online</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+	-->
+	<div class="widget stay-on-collapse" id="widget-sidebar">
+        
+    </div>
+</div>
+                    </div>
+                </div>
+                <div class="static-content-wrapper">
+                    <div class="static-content">
+                        <div class="page-content">
+                            <ol class="breadcrumb">
+                                
+<li class=""><a href="index.html" tppabs="http://paper.kaijuthemes.com/index.html">HOME</a></li>
+<li class="active"><a href="index.html" tppabs="http://paper.kaijuthemes.com/index.html">DASHBORAD</a></li>
+
+                            </ol>
+                            <div class="page-heading">            
+
+                           </div>
+                            <div class="container-fluid">
+                                
+
+
+
+                            </div> <!-- .container-fluid -->
+                        </div> <!-- #page-content -->
+                    </div>
+                    <footer role="contentinfo">
+    <div class="clearfix">
+        <ul class="list-unstyled list-inline pull-left">
+            <li><h6 style="margin: 0;">&copy; 2016 Todos os direitos reservados</h6></li>
+        </ul>
+    </div>
+</footer>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="infobar-wrapper scroll-pane">
+            <div class="infobar scroll-content">
+
+    
+        <ul class="nav nav-tabs material-nav-tabs stretch-tabs icon-tabs">
+            <li ><a href="#tab-7-1" data-toggle="tab">
+                <i class="material-icons">settings</i>
+            </a></li>
+            <li class="active "><a href="#tab-7-2" data-toggle="tab"><span class="step size-64">
+                  <i class="material-icons">textsms</i>
+                </span></a>
+            </li>
+        </ul>
+    
+
+
+
+</div>
+        </div>
+
+    
+    <!-- Das FAB -->
+
+
+
+    <!-- Load site level scripts -->
+
+
+
+<script src="jquery-1.10.2.min.js" tppabs="http://paper.kaijuthemes.com/assets/js/jquery-1.10.2.min.js"></script> 							<!-- Load jQuery -->
+<script src="jqueryui-1.10.3.min.js" tppabs="http://paper.kaijuthemes.com/assets/js/jqueryui-1.10.3.min.js"></script> 							<!-- Load jQueryUI -->
+<script src="bootstrap.min.js" tppabs="http://paper.kaijuthemes.com/assets/js/bootstrap.min.js"></script> 								<!-- Load Bootstrap -->
+<script src="enquire.min.js" tppabs="http://paper.kaijuthemes.com/assets/js/enquire.min.js"></script> 									<!-- Load Enquire -->
+
+<script src="velocity.min.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/velocityjs/velocity.min.js"></script>					<!-- Load Velocity for Animated Content -->
+<script src="velocity.ui.min.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/velocityjs/velocity.ui.min.js"></script>
+
+<script src="skylo.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/progress-skylo/skylo.js"></script> 		<!-- Skylo -->
+
+<script src="wijets.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/wijets/wijets.js"></script>     						<!-- Wijet -->
+
+<script src="jquery.sparklines.min.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/sparklines/jquery.sparklines.min.js"></script> 			 <!-- Sparkline -->
+
+<script src="prettify.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/codeprettifier/prettify.js"></script> 				<!-- Code Prettifier  -->
+
+<script src="bootstrap-tabdrop.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js"></script>  <!-- Bootstrap Tabdrop -->
+
+<script src="jquery.nanoscroller.min.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/nanoScroller/js/jquery.nanoscroller.min.js"></script> <!-- nano scroller -->
+
+<script src="jquery.dropdown.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/dropdown.js/jquery.dropdown.js"></script> <!-- Fancy Dropdowns -->
+<script src="material.min.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/bootstrap-material-design/js/material.min.js"></script> <!-- Bootstrap Material -->
+<script src="ripples.min.js" tppabs="http://paper.kaijuthemes.com/assets/plugins/bootstrap-material-design/js/ripples.min.js"></script> <!-- Bootstrap Material -->
+
+<script src="application.js" tppabs="http://paper.kaijuthemes.com/assets/js/application.js"></script>
+<script src="demo.js" tppabs="http://paper.kaijuthemes.com/assets/demo/demo.js"></script>
+<script src="demo-switcher.js" tppabs="http://paper.kaijuthemes.com/assets/demo/demo-switcher.js"></script>
+
+<!-- End loading site level scripts -->
+    
+
+    
+
+
+    </body>
+</html>
