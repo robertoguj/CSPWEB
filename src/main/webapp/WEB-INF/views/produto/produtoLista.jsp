@@ -60,7 +60,7 @@ $(document).ready(function() {
                             <ol class="breadcrumb">
                                 
 <li><a href="<c:url value='/home' />">HOME</a></li>
-<li><a href="<c:url value='/produto/new' />">">PRODUTO</a></li>
+<li><a href="<c:url value='/produto/add' />">PRODUTO</a></li>
 <li class="active">LISTA DE PRODUTOS</li>
 
                             </ol>
@@ -84,10 +84,10 @@ $(document).ready(function() {
 				        <sec:authorize access="hasRole('ADMIN')">
 				        	<th>ID</th>
 				        </sec:authorize>
-				        <th>Código</th>
+				        <th width="150px;">Código</th>
 				        <th>Nome</th>
 				        <th>Fabricante</th>
-				        <th>Modelo</th>
+				        <th width="200px;">Modelo</th>
 				        <th>Descricao</th>
 					</tr>
 		    	</thead>
@@ -97,10 +97,10 @@ $(document).ready(function() {
 						<sec:authorize access="hasRole('ADMIN')">
 							<td><a href="<c:url value='/removerProduto/${produto.id}' />" class="btn-danger" onclick="return confirm('Tem certeza de que deseja excluir este item?');">${produto.id}</a></td>
         				</sec:authorize>						
-						<td>${produto.codigo}</td>
+						<td width="150px;">${produto.codigo}</td>
 						<td>${produto.nome}</td>
 						<td>${produto.fabricante}</td>
-						<td><a href="<c:url value='/editarProduto/${produto.id}' />" class="btn-success">${produto.modelo}</a></td>
+						<td width="200px;"><a href="<c:url value='/editarProduto/${produto.id}' />" class="btn-success">${produto.modelo}</a></td>
 						<td>${produto.descricao}</td>
 					</tr>
 				</c:forEach>

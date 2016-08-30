@@ -34,7 +34,7 @@
                         <div class="page-content">
                             <ol class="breadcrumb">
 								<li><a href="<c:url value='/home' />">HOME</a></li>
-								<li class="active">PRODUTO</li>
+								<li><a href="<c:url value='/produtos' />">PRODUTO</a></li>
                             </ol>
                             
                             <div class="container-fluid">
@@ -50,12 +50,28 @@
 					<div class="panel-ctrls" data-actions-container="" data-action-collapse='{"target": ".panel-body, .panel-footer"}'></div>
 				</div>
 				<div class="panel-body">
+				
+				<c:if test="${sucesso}">
+					<div class="alert alert-success">
+						<p>Salvo com sucesso.</p>
+					</div>
+				</c:if>
+				
+				
 				<c:url var="addAction" value="/produto/add" ></c:url>
-					<form:form action="${addAction}" commandName="produto" class="form-horizontal row-border" id="validate-form" data-parsley-validate="">
+					<form:form action="${addAction}" path="id" readonly="true" size="8" disabled="true" commandName="produto" class="form-horizontal row-border" id="validate-form" data-parsley-validate="">
+					<form:hidden path="id" />
 	                    <div class="form-group">
 	                        <label class="col-sm-3 control-label" for="nome">Nome</label>
 	                        <div class="col-sm-6">
-	                            <form:input type="text" path="nome" id="nome" placeholder="Campo requerido" required="" class="form-control" />
+	                            <form:select path="nome" id="nome" class="form-control">
+    								<form:option value="none">--SELECT--</form:option>
+    								<form:option value="KVM">KVM</form:option>
+    								<form:option value="Roteador">Roteador</form:option>
+    								<form:option value="Servidor">Servidor</form:option>
+    								<form:option value="Switch">Switch</form:option>
+    								<form:option value="Microcomputador">Microcomputador</form:option>
+    							</form:select>
 	                            <div class="has-error">
 									<form:errors path="nome" class="help-inline"/>
 								</div>
@@ -64,7 +80,20 @@
 						<div class="form-group">
 						    <label class="col-sm-3 control-label" for="fabricante">Fabricante</label>
 						    <div class="col-sm-6">
-						        <form:input type="text" path="fabricante" id="fabricante" data-parsley-minlength="6" placeholder="Pelo menos 6 caracteres" required="" class="form-control" />
+						        <form:select  path="fabricante" id="fabricante" class="form-control">
+    								<form:option value="none">--SELECT--</form:option>
+    								<form:option value="ABB">ABB</form:option>
+    								<form:option value="Advantech">Advantech</form:option>
+    								<form:option value="Allied Telesis">Allied Telesis</form:option>
+    								<form:option value="Cisco">Cisco</form:option>
+    								<form:option value="Dell">Dell</form:option>
+    								<form:option value="HP">Hewlett-Packard</form:option>
+    								<form:option value="Hirschmann">Hirschmann</form:option>
+    								<form:option value="Ibyte">Ibyte</form:option>
+    								<form:option value="IEI">IEI</form:option>
+    								<form:option value="Ruggedcom">Ruggedcom</form:option>
+    								<form:option value="Siemens">Siemens</form:option>
+    							</form:select>
 						    </div>
 						</div>
 						<div class="form-group">
@@ -80,13 +109,9 @@
 						    </div>
 						</div>
 						<div class="form-group">
-						    <label class="col-sm-3 control-label" for="descricao">Descrição</label>
-						    <div class="col-sm-6">
-						        <form:input type="text" path="descricao" id="descricao" data-parsley-range="[10,30]" placeholder="Entre 10 e 30 caracteres" requerid="" class="form-control" />
-						    </div>
+							<label class="col-sm-3 control-label" for="descricao">Descrição</label>
+							<div class="col-sm-6"><form:textarea path="descricao" id="descricao" cols="50" rows="4" data-parsley-range="[10,30]" placeholder="Entre 10 e 30 caracteres" requerid="" class="form-control" /></div>
 						</div>
-
-
 						<div class="panel-footer">
 							<div class="row">
 								<div class="col-sm-8 col-sm-offset-2">

@@ -42,19 +42,22 @@ public class ProdutoController extends AbstractController {
 	 * Este método irá fornecer o meio para adicionar um novo produto.
 	 */
 	@RequestMapping(value = { "/produto/add" }, method = RequestMethod.POST)
-	public String salvarProduto(@Valid Produto produto, BindingResult resultado) {
+	public String salvarProduto(@Valid Produto produto, BindingResult resultado, ModelMap model) {
 		
 		if (resultado.hasErrors()) {
-			return "redirect:/produtos";
+			return "produto/produtoRegistro";
 		}
 		
-		if(produto.getId() == 0){
+		if(produto.getId() == 0) {
 			this.produtoService.salvarProduto(produto);
-		}else{
+
+		} else {
 			this.produtoService.atualizarProduto(produto);
 		}
 
-		return "redirect:/produtos";
+		model.addAttribute("sucesso", "Produto " + produto.getModelo() + " salvo com sucesso.");
+		
+		return null;
 
 	}
 

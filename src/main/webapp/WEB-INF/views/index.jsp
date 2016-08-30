@@ -37,8 +37,7 @@
 				<div class="static-content">
 					<div class="page-content">
 						<ol class="breadcrumb">
-							<li class=""><a href="index.html">HOME</a></li>
-							<li class="active"><a href="index.html">DASHBORAD</a></li>
+							<li class=""><a href="<c:url value='/home' />">INÍCIO</a></li>
 						</ol>
 						
 						<!-- #page-content-begin -->

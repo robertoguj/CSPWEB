@@ -36,7 +36,7 @@
                             <ol class="breadcrumb">
                                 
 <li><a href="<c:url value='/home' />">HOME</a></li>
-<li><a href="<c:url value='/usuario/new' />">USUÁRIO</a></li>
+<li><a href="<c:url value='/usuario/add' />">USUÁRIO</a></li>
 <li class="active">LISTA DE USUÁRIOS</li>
 
                             </ol>

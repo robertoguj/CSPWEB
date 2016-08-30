@@ -34,7 +34,7 @@
                         <div class="page-content">
                             <ol class="breadcrumb">
 								<li><a href="<c:url value='/inicio' />">HOME</a></li>
-								<li><a href="#">USUÁRIO</a></li>
+								<li><a href="<c:url value='/usuarios' />">USUÁRIO</a></li>
                             </ol>
                             
                             <div class="container-fluid">

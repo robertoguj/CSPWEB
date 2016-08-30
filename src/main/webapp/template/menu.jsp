@@ -39,7 +39,7 @@
 
         					</ul>
         				</li>
-		
+<!--		
 						<li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">create</i></span><span>Manutenção</span></a>
 							<ul class="acc-menu">
 								<li><a  class="withripple" href="ui-forms.html">Form Layout</a></li>
@@ -55,7 +55,7 @@
 								<li><a  class="withripple" href="form-gridforms.html">Grid Forms</a></li>
 							</ul>
 						</li>
-<!--
+
 						<li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">apps</i></span><span>Tables</span></a>
 							<ul class="acc-menu">
 								<li><a  class="withripple" href="ui-tables.html">Basic Tables</a></li>
