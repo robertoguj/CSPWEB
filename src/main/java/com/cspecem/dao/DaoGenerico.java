@@ -9,12 +9,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class AbstractDao<PK extends Serializable, T> {
+public abstract class DaoGenerico<PK extends Serializable, T> {
 	
 	private final Class<T> persistentClass;
 	
 	@SuppressWarnings("unchecked")
-	public AbstractDao(){
+	public DaoGenerico(){
 		this.persistentClass =(Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[1];
 	}
 	
@@ -37,6 +37,10 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 	public void update(T entity) {
 		getSession().update(entity);
 	}
+	
+	public void saveOrUpdate(T entity) {
+		getSession().saveOrUpdate(entity);
+	}
 
 	public void remove(T entity) {
 		getSession().delete(entity);
@@ -52,11 +56,9 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<T> findAll() {
+	public List<T> findAll(Class<T> classe) {
 		return getSession().createQuery("from " + persistentClass.getName()).list();
 	}
 	
-	// www.java2s.com/Code/Java/Hibernate/GenericDaoFindAll.htm
-	// pt.stackoverflow.com/questions/75829/como-fazer-a-classe-genericdao-utilizando-o-hibernate
 
 }

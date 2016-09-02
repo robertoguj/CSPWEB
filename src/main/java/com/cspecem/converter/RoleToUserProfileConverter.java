@@ -7,7 +7,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import com.cspecem.model.Profile;
-import com.cspecem.service.UsuarioProfileService;
+import com.cspecem.service.ProfileService;
 
 /**
  * A converter class used in views to map id's to actual userProfile objects.
@@ -18,7 +18,7 @@ public class RoleToUserProfileConverter implements Converter<Object, Profile>{
 	static final Logger logger = LoggerFactory.getLogger(RoleToUserProfileConverter.class);
 	
 	@Autowired
-	UsuarioProfileService usuarioProfileService;
+	ProfileService usuarioProfileService;
 
 	/**
 	 * Gets UsuarioProfile por ID

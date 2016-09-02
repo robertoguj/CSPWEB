@@ -38,9 +38,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers("/").access("hasRole('USER') or hasRole('ADMIN') or hasRole('DBA')")
-				.antMatchers("/persons", "/edit/{id}", "/person/add", "/remove/{id}").access("hasRole('USER') or hasRole('ADMIN') or hasRole('DBA')")
-				.antMatchers("/produto/**", "/editar/{id}", "/produto/add", "/remover/{id}").access("hasRole('USER') or hasRole('ADMIN') or hasRole('DBA')")
-				.antMatchers("/usuario/**", "/edita-usuario?id=*", "/deleta-usuario?id=*").access("hasRole('ADMIN')")
+				.antMatchers("/persons", "/person/add", "/edit/{id}", "/remove/{id}").access("hasRole('USER') or hasRole('ADMIN') or hasRole('DBA')")
+				.antMatchers("/produto/**", "/editar/{id}", "/remover/{id}").access("hasRole('USER') or hasRole('ADMIN') or hasRole('DBA')")
+				.antMatchers("/usuarios", "/edita-usuario?id=*", "/deleta-usuario?id=*").access("hasRole('ADMIN')")
 				.and()
 				.formLogin().loginPage("/login").loginProcessingUrl("/login")
 				.usernameParameter("ssoId").passwordParameter("password")

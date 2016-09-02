@@ -19,7 +19,7 @@ public class Produto implements Serializable {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PRODUTO_ID")
-	private int id;
+	private Integer id;
 	
 	@NotEmpty
 	@Column(name="NOME", nullable=false)
@@ -40,12 +40,12 @@ public class Produto implements Serializable {
 	@NotEmpty
 	@Column(name="DESCRICAO", nullable=false)
 	private String descricao;
-
-	public int getId() {
+	
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -96,7 +96,7 @@ public class Produto implements Serializable {
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((fabricante == null) ? 0 : fabricante.hashCode());
-		result = prime * result + id;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((modelo == null) ? 0 : modelo.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
@@ -126,7 +126,10 @@ public class Produto implements Serializable {
 				return false;
 		} else if (!fabricante.equals(other.fabricante))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (modelo == null) {
 			if (other.modelo != null)

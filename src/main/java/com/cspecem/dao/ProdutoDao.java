@@ -8,14 +8,10 @@ public interface ProdutoDao {
 	
 	Produto buscaPorId(int id);
 	
-	//Produto buscaPorCodigo(String codigo);
-	
 	void salvar(Produto produto);
-	
-	void atualizar(Produto produto);
 	
 	void remover(int id);
 	
-	List<Produto> listarProdutos();
+	List<Produto> listarTodos();
 
 }

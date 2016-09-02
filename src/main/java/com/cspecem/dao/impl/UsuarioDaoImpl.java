@@ -1,4 +1,4 @@
-package com.cspecem.dao;
+package com.cspecem.dao.impl;
 
 import java.util.List;
 
@@ -10,10 +10,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.cspecem.dao.DaoGenerico;
+import com.cspecem.dao.UsuarioDao;
 import com.cspecem.model.Usuario;
 
 @Repository("usuarioDao")
-public class UsuarioDaoImpl extends AbstractDao<Integer, Usuario> implements UsuarioDao {
+public class UsuarioDaoImpl extends DaoGenerico<Integer, Usuario> implements UsuarioDao {
 
 	static final Logger logger = LoggerFactory.getLogger(UsuarioDaoImpl.class);
 	

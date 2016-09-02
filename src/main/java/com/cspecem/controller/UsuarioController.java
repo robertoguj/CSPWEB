@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -24,8 +25,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.cspecem.model.Profile;
+import com.cspecem.model.ProfileTipo;
 import com.cspecem.model.Usuario;
-import com.cspecem.service.UsuarioProfileService;
+import com.cspecem.service.ProfileService;
 import com.cspecem.service.UsuarioService;
 
 @Controller
@@ -37,7 +39,7 @@ public class UsuarioController extends AbstractController {
 	UsuarioService userService;
 
 	@Autowired
-	UsuarioProfileService userProfileService;
+	ProfileService userProfileService;
 
 	@Autowired
 	MessageSource messageSource;
@@ -48,18 +50,19 @@ public class UsuarioController extends AbstractController {
 	@Autowired
 	AuthenticationTrustResolver authenticationTrustResolver;
 
+	private String confirmarSenha;
+	
 	/**
 	 * Este método irá listar todos os usuários existentes.
 	 */
-	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+	@RequestMapping(value={"/", "/home"})
 	public String started(ModelMap model) {
-
 		model.addAttribute("usuarioLogado", getPrincipal());
 		return "index";
 	}
 	
 	@RequestMapping(value = {"/usuarios"}, method = RequestMethod.GET)
-	public String listUsers(ModelMap model) {
+	public String listar(ModelMap model) {
 
 		List<Usuario> usuarios = userService.findAllUsers();
 		model.addAttribute("usuarios", usuarios);
@@ -70,13 +73,22 @@ public class UsuarioController extends AbstractController {
 	/**
 	 * Este método irá fornecer o meio para adicionar um novo usuário.
 	 */
-	@RequestMapping(value={"/usuario/add"}, method = RequestMethod.GET)
-	public String newUser(ModelMap model) {
+	@RequestMapping(value={"/usuario/novo"})
+	public String novo(ModelMap model) {
 		Usuario usuario = new Usuario();
 		model.addAttribute("usuario", usuario);
 		model.addAttribute("edit", false);
 		model.addAttribute("usuarioLogado", getPrincipal());
-		return "usuario/usuarioRegistro";
+		return "usuario/usuarioForm";
+	}
+	
+	
+	@RequestMapping(value={"/registro"})
+	public String registrar(Model model) {
+		Usuario usuario = new Usuario();
+		model.addAttribute("usuario", usuario);
+		model.addAttribute("edit", false);
+		return "publico/usuarioRegistro";
 	}
 
 	/**
@@ -84,42 +96,49 @@ public class UsuarioController extends AbstractController {
 	 * Ele também valida a entrada do usuário.
 	 */
 	@RequestMapping(value = { "/usuario/add" }, method = RequestMethod.POST)
-	public String saveUser(@Valid Usuario usuario, BindingResult result, ModelMap model) {
+	public String salvar(@Valid Usuario usuario, BindingResult result, ModelMap model, ProfileTipo profile) {
 
 		if (result.hasErrors()) {
-			return "usuario/usuarioRegistro";
+			return "publico/usuarioRegistro";
 		}
 
 		/*
-		 * Testando a singularidade do campo [SSOID].
-		 * Deve ser implementada com anotação @Unique e aplicá-lo no campo [SSOID] da classe model Usuario.
+		 * Testando a singularidade do campo [ssoID].
+		 * Deve ser implementada com anotação @Unique e aplicá-lo no campo [ssoID] da classe model Usuario.
 		 * 
 		 */
 		if (!userService.isUserSSOUnique(usuario.getId(), usuario.getSsoId())) {
 			FieldError ssoError = new FieldError("usuario", "ssoId", messageSource.getMessage("unico.usuario",
 					new String[] { usuario.getSsoId() }, Locale.getDefault()));
 			result.addError(ssoError);
-			return "usuario/usuarioRegistro";
+			return "publico/usuarioRegistro";
 		}
 
+		if (!usuario.getPassword().equalsIgnoreCase(this.confirmarSenha)) {
+			model.addAttribute("msgErro", "Senha confirmada incorretamente.");
+			return null;
+		}
+		
+		//usuario.setUserProfiles(profile.USER);
 		userService.saveUser(usuario);
 
 		model.addAttribute("sucesso",
 				"Usuario " + usuario.getFirstName() + " " + usuario.getLastName() + " registrado com sucesso.");
 		model.addAttribute("usuarioLogado", getPrincipal());
-		return "publico/registroSucesso";
+		
+		return "usuario/usuarioRegistroSucesso";
 	}
 
 	/**
 	 * Este método irá fornecer o meio para atualizar um usuário existente.
 	 */
 	@RequestMapping(value = { "/edita-usuario-{ssoId}" }, method = RequestMethod.GET)
-	public String editUser(@PathVariable String ssoId, ModelMap model) {
+	public String editar(@PathVariable String ssoId, ModelMap model) {
 		Usuario usuario = userService.findBySSO(ssoId);
 		model.addAttribute("usuario", usuario);
 		model.addAttribute("edit", true);
 		model.addAttribute("usuarioLogado", getPrincipal());
-		return "usuario/usuarioRegistro";
+		return "usuario/usuarioForm";
 	}
 
 	/**
@@ -127,10 +146,10 @@ public class UsuarioController extends AbstractController {
 	 * Ele também valida a entrada do usuário.
 	 */
 	@RequestMapping(value = { "/edita-usuario-{ssoId}" }, method = RequestMethod.POST)
-	public String updateUser(@Valid Usuario usuario, BindingResult result, ModelMap model, @PathVariable String ssoId) {
+	public String atualizar(@Valid Usuario usuario, BindingResult result, ModelMap model, @PathVariable String ssoId) {
 
 		if (result.hasErrors()) {
-			return "usuario/usuarioRegistro";
+			return "usuario/usuarioForm";
 		}
 
 		userService.updateUser(usuario);
@@ -138,14 +157,15 @@ public class UsuarioController extends AbstractController {
 		model.addAttribute("sucesso",
 				"Usuario " + usuario.getFirstName() + " " + usuario.getLastName() + " atualizado com sucesso.");
 		model.addAttribute("usuarioLogado", getPrincipal());
-		return "publico/registroSucesso";
+		
+		return "usuario/usuarioRegistroSucesso";
 	}
 
 	/**
 	 * Este método irá apagar um usuário pelo seu valor SSOID.
 	 */
 	@RequestMapping(value = { "/deleta-usuario-{ssoId}" }, method = RequestMethod.GET)
-	public String deleteUser(@PathVariable String ssoId) {
+	public String deletar(@PathVariable String ssoId) {
 		userService.deleteUserBySSO(ssoId);
 		return "redirect:/usuarios";
 	}
@@ -199,6 +219,14 @@ public class UsuarioController extends AbstractController {
 	private boolean isCurrentAuthenticationAnonymous() {
 		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		return authenticationTrustResolver.isAnonymous(authentication);
+	}
+
+	public String getConfirmarSenha() {
+		return confirmarSenha;
+	}
+
+	public void setConfirmarSenha(String confirmarSenha) {
+		this.confirmarSenha = confirmarSenha;
 	}
 
 }

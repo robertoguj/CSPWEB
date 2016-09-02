@@ -33,7 +33,7 @@
                     <div class="static-content">
                         <div class="page-content">
                             <ol class="breadcrumb">
-								<li><a href="<c:url value='/inicio' />">HOME</a></li>
+								<li><a href="<c:url value='/home' />">HOME</a></li>
 								<li><a href="<c:url value='/usuarios' />">USUÁRIO</a></li>
                             </ol>
                             
@@ -50,6 +50,7 @@
 					<div class="panel-ctrls" data-actions-container="" data-action-collapse='{"target": ".panel-body, .panel-footer"}'></div>
 				</div>
 				<div class="panel-body">
+				
 					<form:form method="POST" modelAttribute="usuario" class="form-horizontal row-border" id="validate-form" data-parsley-validate="">
 					<form:input type="hidden" path="id" id="id"/>
 	                    <div class="form-group">

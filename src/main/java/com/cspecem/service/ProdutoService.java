@@ -8,12 +8,10 @@ public interface ProdutoService {
 	
 	Produto buscarPorId(int id);
 	
-	void salvarProduto(Produto produto);
+	void salvar(Produto produto);
 	
-	List<Produto> listarProdutos();
+	List<Produto> listarTodos();
 	
-	void atualizarProduto(Produto produto);
-	
-	void removerProduto(int id);
+	void remover(int id);
 
 }

@@ -49,7 +49,7 @@
 										<span class="input-group-addon">
 											<i class="ti ti-user"></i>
 										</span>
-										<input type="text" class="form-control" id="username" name="ssoId" placeholder="Username" required>
+										<input type="text" class="form-control" id="username" name="ssoId" placeholder="Usuário" required>
 									</div>
 		                        </div>
 							</div>
@@ -60,7 +60,7 @@
 										<span class="input-group-addon">
 											<i class="ti ti-key"></i>
 										</span>
-										<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+										<input type="password" class="form-control" id="password" name="password" placeholder="Senha" required>
 									</div>
 		                        </div>
 							</div>
@@ -69,7 +69,7 @@
 
 							<div class="panel-footer">
 								<div class="form-actions">
-									<a href="extras-registration.html" class="btn btn-default pull-left">Registrar</a>
+									<a href="<c:url value='/registro' />" class="btn btn-default pull-left">Registrar</a>
 									<input type="submit" class="btn btn-primary btn-raised pull-right" value="Login">
 								</div>
 							</div>							

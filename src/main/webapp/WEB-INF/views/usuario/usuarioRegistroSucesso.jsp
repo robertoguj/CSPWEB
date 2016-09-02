@@ -33,7 +33,8 @@
 					<div class="page-content">
 						<ol class="breadcrumb">
 							<li><a href="<c:url value='/home' />">HOME</a></li>
-							<li class="active">MESSAGE</li>
+							<li><a href="<c:url value='/usuario/add' />">USUÁRIO</a></li>
+							<li><a href="<c:url value='/usuarios' />">LISTA USUÁRIOS</a></li>
 						</ol>
 
 						<div class="container-fluid">
@@ -42,7 +43,6 @@
 									<div class="col-md-12">
 										<div class="panel panel-default" data-widget='{"draggable": "false"}'>
 											<div class="panel-heading">
-												<h2>Sucesso</h2>
 												<div class="panel-ctrls" data-actions-container="" data-action-collapse='{"target": ".panel-body"}'></div>
 											</div>
 											<div class="panel-body">
@@ -50,6 +50,22 @@
 													<i class="fa fa-check"></i>&nbsp; <strong>${sucesso}</strong>
 													<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 												</div>
+												
+												<table>
+            
+            <tr>
+                <td>Nome:</td>
+                <td>${usuario.firstName}</td>
+            </tr>
+            <tr>
+                <td>Sobrenome:</td>
+                <td>${usuario.lastName}</td>
+            </tr>
+            
+ 
+        </table>
+												
+												
 											<!-- 
 												<div class="alert alert-dismissable alert-info">
 													<i class="fa fa-info"></i>&nbsp; <strong>Heads up!</strong> This alert needs your attention, but it's not super important.

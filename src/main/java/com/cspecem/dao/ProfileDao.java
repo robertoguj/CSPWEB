@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.cspecem.model.Profile;
 
-public interface UsuarioProfileDao {
+public interface ProfileDao {
 
 	List<Profile> findAll();
 

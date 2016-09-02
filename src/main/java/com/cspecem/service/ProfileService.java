@@ -5,7 +5,7 @@ import java.util.List;
 import com.cspecem.model.Profile;
 
 
-public interface UsuarioProfileService {
+public interface ProfileService {
 
 	Profile findById(int id);
 

@@ -1,4 +1,4 @@
-package com.cspecem.dao;
+package com.cspecem.dao.impl;
 
 import java.util.List;
 
@@ -7,10 +7,12 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import com.cspecem.dao.DaoGenerico;
+import com.cspecem.dao.ProfileDao;
 import com.cspecem.model.Profile;
 
-@Repository("usuarioProfileDao")
-public class UsuarioProfileDaoImpl extends AbstractDao<Integer, Profile>implements UsuarioProfileDao{
+@Repository("profileDao")
+public class ProfileDaoImpl extends DaoGenerico<Integer, Profile>implements ProfileDao{
 
 	public Profile findById(int id) {
 		return fetchById(id);

@@ -1,4 +1,4 @@
-package com.cspecem.service;
+package com.cspecem.service.impl;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cspecem.dao.UsuarioDao;
 import com.cspecem.model.Usuario;
+import com.cspecem.service.UsuarioService;
 
 @Service("usuarioService")
 @Transactional

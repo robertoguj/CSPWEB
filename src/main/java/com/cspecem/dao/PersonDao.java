@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.cspecem.model.Person;
 
-public interface PersonDAO {
+public interface PersonDao {
 
 	public void addPerson(Person p);
 	public void updatePerson(Person p);

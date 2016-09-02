@@ -1,4 +1,4 @@
-package com.cspecem.service;
+package com.cspecem.service.impl;
 
 import java.util.List;
 
@@ -6,15 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cspecem.dao.UsuarioProfileDao;
+import com.cspecem.dao.ProfileDao;
 import com.cspecem.model.Profile;
+import com.cspecem.service.ProfileService;
 
-@Service("usuarioProfileService")
+@Service("profileService")
 @Transactional
-public class UsuarioProfileServiceImpl implements UsuarioProfileService{
+public class ProfileServiceImpl implements ProfileService{
 	
 	@Autowired
-	UsuarioProfileDao dao;
+	ProfileDao dao;
 	
 	public Profile findById(int id) {
 		return dao.findById(id);

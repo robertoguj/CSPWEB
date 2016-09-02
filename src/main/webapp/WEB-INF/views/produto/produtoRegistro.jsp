@@ -51,13 +51,6 @@
 				</div>
 				<div class="panel-body">
 				
-				<c:if test="${sucesso}">
-					<div class="alert alert-success">
-						<p>Salvo com sucesso.</p>
-					</div>
-				</c:if>
-				
-				
 				<c:url var="addAction" value="/produto/add" ></c:url>
 					<form:form action="${addAction}" path="id" readonly="true" size="8" disabled="true" commandName="produto" class="form-horizontal row-border" id="validate-form" data-parsley-validate="">
 					<form:hidden path="id" />

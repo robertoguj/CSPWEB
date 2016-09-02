@@ -1,4 +1,4 @@
-package com.cspecem.dao;
+package com.cspecem.dao.impl;
 
 import java.util.List;
 
@@ -9,14 +9,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.cspecem.dao.DaoGenerico;
+import com.cspecem.dao.ProdutoDao;
 import com.cspecem.model.Produto;
 
 @Repository("produtoDao")
-public class ProdutoDaoImpl extends AbstractDao<Integer, Produto> implements ProdutoDao {
+public class ProdutoDaoImpl extends DaoGenerico<Integer, Produto> implements ProdutoDao {
 	
 	static final Logger logger = LoggerFactory.getLogger(ProdutoDaoImpl.class);
 
 	public Produto buscaPorId(int id) {
+		logger.info("Codigo : {}", id);
 		Produto produto = fetchById(id);
 		return produto;
 	}
@@ -31,21 +34,19 @@ public class ProdutoDaoImpl extends AbstractDao<Integer, Produto> implements Pro
 	}
 
 	public void salvar(Produto produto) {
-		save(produto);
+		logger.info("Produto : {}", produto);
+		saveOrUpdate(produto);
 	}
 
-	public void atualizar(Produto produto) {
-		update(produto);
-	}
-	
 	public void remover(int id) {
+		logger.info("Codigo : {}", id);
 		Produto produto = new Produto();
 		produto.setId(id);
 		remove(produto);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Produto> listarProdutos() {
+	public List<Produto> listarPorId() {
 		Criteria criteria = createEntityCriteria().addOrder(Order.desc("id"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Produto> produtos = (List<Produto>) criteria.list();
@@ -54,6 +55,12 @@ public class ProdutoDaoImpl extends AbstractDao<Integer, Produto> implements Pro
 		}
 		
 		return produtos;
+	}
+	
+	public List<Produto> listarTodos() {
+		Produto produto = null;
+		logger.info("Lista de produto: " + produto);
+		return findAll(Produto.class);
 	}
 
 	

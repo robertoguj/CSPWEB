@@ -1,4 +1,4 @@
-package com.cspecem.dao;
+package com.cspecem.dao.impl;
 
 import java.util.List;
 
@@ -9,12 +9,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.cspecem.dao.PersonDao;
 import com.cspecem.model.Person;
 
 @Repository("personDao")
-public class PersonDAOImpl implements PersonDAO {
+public class PersonDaoImpl implements PersonDao {
 	
-	private static final Logger logger = LoggerFactory.getLogger(PersonDAOImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(PersonDaoImpl.class);
 
 	@Autowired
 	private SessionFactory sessionFactory;

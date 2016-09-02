@@ -11,12 +11,12 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cspecem.dao.AbstractDao;
+import com.cspecem.dao.DaoGenerico;
 import com.cspecem.model.PersistentLogin;
 
 @Repository("tokenRepositoryDao")
 @Transactional
-public class HibernateTokenRepositoryImpl extends AbstractDao<String, PersistentLogin>
+public class HibernateTokenRepositoryImpl extends DaoGenerico<String, PersistentLogin>
 		implements PersistentTokenRepository {
 
 	static final Logger logger = LoggerFactory.getLogger(HibernateTokenRepositoryImpl.class);
