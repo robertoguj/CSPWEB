@@ -73,7 +73,7 @@ public class UsuarioController extends AbstractController {
 	/**
 	 * Este método irá fornecer o meio para adicionar um novo usuário.
 	 */
-	@RequestMapping(value={"/usuario/novo"})
+	@RequestMapping(value={"/usuario/add"}, method = RequestMethod.GET)
 	public String novo(ModelMap model) {
 		Usuario usuario = new Usuario();
 		model.addAttribute("usuario", usuario);
@@ -99,7 +99,7 @@ public class UsuarioController extends AbstractController {
 	public String salvar(@Valid Usuario usuario, BindingResult result, ModelMap model, ProfileTipo profile) {
 
 		if (result.hasErrors()) {
-			return "publico/usuarioRegistro";
+			return "usuario/usuarioForm";
 		}
 
 		/*
@@ -111,19 +111,20 @@ public class UsuarioController extends AbstractController {
 			FieldError ssoError = new FieldError("usuario", "ssoId", messageSource.getMessage("unico.usuario",
 					new String[] { usuario.getSsoId() }, Locale.getDefault()));
 			result.addError(ssoError);
-			return "publico/usuarioRegistro";
+			return "usuario/usuarioForm";
 		}
 
+		/*
 		if (!usuario.getPassword().equalsIgnoreCase(this.confirmarSenha)) {
 			model.addAttribute("msgErro", "Senha confirmada incorretamente.");
 			return null;
 		}
+		*/
 		
 		//usuario.setUserProfiles(profile.USER);
 		userService.saveUser(usuario);
 
-		model.addAttribute("sucesso",
-				"Usuario " + usuario.getFirstName() + " " + usuario.getLastName() + " registrado com sucesso.");
+		model.addAttribute("sucesso", "Salvo com sucesso.");
 		model.addAttribute("usuarioLogado", getPrincipal());
 		
 		return "usuario/usuarioRegistroSucesso";
@@ -154,8 +155,7 @@ public class UsuarioController extends AbstractController {
 
 		userService.updateUser(usuario);
 
-		model.addAttribute("sucesso",
-				"Usuario " + usuario.getFirstName() + " " + usuario.getLastName() + " atualizado com sucesso.");
+		model.addAttribute("sucesso", "Salvo com sucesso.");
 		model.addAttribute("usuarioLogado", getPrincipal());
 		
 		return "usuario/usuarioRegistroSucesso";

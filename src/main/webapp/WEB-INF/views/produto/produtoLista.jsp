@@ -78,7 +78,7 @@ $(document).ready(function() {
 				</div>
 				<div class="panel-body no-padding">
 					<c:if test="${!empty listaProdutos}">
-					<table id="example1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+					<table id="example1" class="table table-striped table-bordered">
 						<thead>
 		      		<tr>
 				        <sec:authorize access="hasRole('ADMIN')">

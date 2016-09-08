@@ -46,24 +46,11 @@
 												<div class="panel-ctrls" data-actions-container="" data-action-collapse='{"target": ".panel-body"}'></div>
 											</div>
 											<div class="panel-body">
-												<div class="alert alert-dismissable alert-success">
+									<div class="alert alert-dismissable alert-success">
 													<i class="fa fa-check"></i>&nbsp; <strong>${sucesso}</strong>
 													<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 												</div>
-												
-												<table>
-            
-            <tr>
-                <td>Nome:</td>
-                <td>${usuario.firstName}</td>
-            </tr>
-            <tr>
-                <td>Sobrenome:</td>
-                <td>${usuario.lastName}</td>
-            </tr>
-            
- 
-        </table>
+							
 												
 												
 											<!-- 
@@ -80,11 +67,36 @@
 													<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 												</div>
 											 -->
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+	
+						
+	
+						
+								  <table class="table">
+									<tbody>
+									  <tr>
+										<th>Nome</th>
+										<td><a href="#">${usuario.firstName}</a></td>
+									  </tr>
+									  <tr>
+										<th>Email</th>
+										<td><a href="#">${usuario.email}</a></td>
+									  </tr>
+									  <tr>
+										<th>Usuário</th>
+										<td>${usuario.ssoId}</td>
+									  </tr>
+									</tbody>
+								  </table>
+		
+						
+
+						</div>
+						</div>
+						</div>
+						</div>
+						</div>
+						
+						
 						</div>
 						<!-- .container-fluid -->
 					</div>
@@ -102,6 +114,8 @@
 	<script src="<c:url value='/resources/js/jquery.pnotify.min.js' />"></script>
 	<script src="<c:url value='/resources/js/demo-alerts.js' />"></script>
 	<!-- End loading page level scripts-->
+
+	
 
 </body>
 </html>

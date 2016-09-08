@@ -33,8 +33,8 @@
 					<div class="page-content">
 						<ol class="breadcrumb">
 							<li><a href="<c:url value='/home' />">HOME</a></li>
-							<li><a href="<c:url value='/usuario/add' />">USUÁRIO</a></li>
-							<li><a href="<c:url value='/usuarios' />">LISTA USUÁRIOS</a></li>
+							<li><a href="<c:url value='/produto/add' />">PRODUTO</a></li>
+							<li><a href="<c:url value='/produtos' />">LISTA PRODUTOS</a></li>
 						</ol>
 
 						<div class="container-fluid">
@@ -51,47 +51,33 @@
 													<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 												</div>
 												
-												<table>
-            
-            <tr>
-                <td>Código:</td>
-                <td>${produto.codigo}</td>
-            </tr>
-            <tr>
-                <td>Nome:</td>
-                <td>${produto.nome}</td>
-            </tr>
-            <tr>
-                <td>Fabricante:</td>
-                <td>${produto.fabricante}</td>
-            </tr>
-            <tr>
-                <td>Modelo:</td>
-                <td>${produto.modelo}</td>
-            </tr>
-            <tr>
-                <td>Descrição:</td>
-                <td>${produto.descricao}</td>
-            </tr>
-            
- 
-        </table>
+												<table class="table">
 												
 												
-											<!-- 
-												<div class="alert alert-dismissable alert-info">
-													<i class="fa fa-info"></i>&nbsp; <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-													<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-												</div>
-												<div class="alert alert-dismissable alert-warning">
-													<i class="fa fa-exclamation-triangle"></i>&nbsp; <strong>Warning!</strong> Best check yo self, you're not looking too good.
-													<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-												</div>
-												<div class="alert alert-dismissable alert-danger">
-													<i class="fa fa-close"></i>&nbsp; <strong>Oh snap!</strong> Change a few things up and try submitting again.
-													<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-												</div>
-											 -->
+									<tbody>
+									  <tr>
+										<th>Código</th>
+										<td>${produto.codigo}</td>
+									  </tr>
+									  <tr>
+										<th>Nome</th>
+										<td>${produto.nome}</td>
+									  </tr>
+									  <tr>
+										<th>Fabricante</th>
+										<td>${produto.fabricante}</td>
+									  </tr>
+									  <tr>
+										<th>Modelo</th>
+										<td>${produto.modelo}</td>
+									  </tr>
+									  <tr>
+										<th>Descricao</th>
+										<td>${produto.descricao}</td>
+									  </tr>
+									</tbody>
+						        </table>
+												
 											</div>
 										</div>
 									</div>

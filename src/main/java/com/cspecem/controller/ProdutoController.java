@@ -56,6 +56,7 @@ public class ProdutoController extends AbstractController {
 		}			
 		
 		produtoService.salvar(produto);
+		model.addAttribute("sucesso", "Salvo com sucesso.");
 		
 		return "produto/produtoSucesso";
 		
