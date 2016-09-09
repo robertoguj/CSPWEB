@@ -82,11 +82,11 @@ $(document).ready(function() {
 						<thead>
 		      		<tr>
 				        <sec:authorize access="hasRole('ADMIN')">
-				        	<th>ID</th>
+				        	<th width="30px;">ID</th>
 				        </sec:authorize>
 				        <th width="150px;">Código</th>
 				        <th>Nome</th>
-				        <th>Fabricante</th>
+				        <th width="100px;">Fabricante</th>
 				        <th width="200px;">Modelo</th>
 				        <th>Descricao</th>
 					</tr>
@@ -95,11 +95,11 @@ $(document).ready(function() {
 				<c:forEach items="${listaProdutos}" var="produto">
 					<tr>
 						<sec:authorize access="hasRole('ADMIN')">
-							<td><a href="<c:url value='/removerProduto/${produto.id}' />" class="btn-danger" onclick="return confirm('Tem certeza de que deseja excluir este item?');">${produto.id}</a></td>
+							<td width="30px;"><a href="<c:url value='/removerProduto/${produto.id}' />" class="btn-danger" onclick="return confirm('Tem certeza de que deseja excluir este item?');">${produto.id}</a></td>
         				</sec:authorize>						
 						<td width="150px;">${produto.codigo}</td>
 						<td>${produto.nome}</td>
-						<td>${produto.fabricante}</td>
+						<td width="100px;">${produto.fabricante}</td>
 						<td width="200px;"><a href="<c:url value='/editarProduto/${produto.id}' />" class="btn-success">${produto.modelo}</a></td>
 						<td>${produto.descricao}</td>
 					</tr>
@@ -158,9 +158,6 @@ $(document).ready(function() {
     
     <!-- Load page level scripts-->
 	<script src="<c:url value='/resources/js/dataTables.bootstrap.js' />"></script>
-	<script src="<c:url value='/resources/js/jquery.dataTables.js' />"></script>
-	<script src="<c:url value='/resources/js/demo-datatables.js' />"></script>
-
     <!-- End loading page level scripts-->
 
     </body>
