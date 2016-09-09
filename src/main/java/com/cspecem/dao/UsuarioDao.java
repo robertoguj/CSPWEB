@@ -7,15 +7,15 @@ import com.cspecem.model.Usuario;
 
 public interface UsuarioDao {
 
-	Usuario findById(int id);
+	Usuario encontrarPorId(int id);
 	
-	Usuario findBySSO(String sso);
+	Usuario encontrarPorSSO(String sso);
 	
-	void salvar(Usuario user);
+	void salvar(Usuario usuario);
 	
-	void deleteBySSO(String sso);
+	void deletarPorSSO(String sso);
 	
-	List<Usuario> findAllUsers();
+	List<Usuario> encontrarTodos();
 
 }
 

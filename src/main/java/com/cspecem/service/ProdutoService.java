@@ -10,8 +10,10 @@ public interface ProdutoService {
 	
 	void salvar(Produto produto);
 	
+	void remover(int id);
+	
 	List<Produto> listarTodos();
 	
-	void remover(int id);
+	List<Produto> listarPorModelo();
 
 }

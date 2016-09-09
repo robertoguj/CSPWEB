@@ -18,12 +18,14 @@ public class ProdutoDaoImpl extends DaoGenerico<Integer, Produto> implements Pro
 	
 	static final Logger logger = LoggerFactory.getLogger(ProdutoDaoImpl.class);
 
+	@Override
 	public Produto buscaPorId(int id) {
 		logger.info("Codigo : {}", id);
 		Produto produto = fetchById(id);
 		return produto;
 	}
 
+	@Override
 	public Produto buscaPorCodigo(String codigo) {
 		logger.info("Codigo : {}", codigo);
 		Criteria criteria = createEntityCriteria();
@@ -33,11 +35,13 @@ public class ProdutoDaoImpl extends DaoGenerico<Integer, Produto> implements Pro
 		return produto;
 	}
 
+	@Override
 	public void salvar(Produto produto) {
 		logger.info("Produto : {}", produto);
 		saveOrUpdate(produto);
 	}
 
+	@Override
 	public void remover(int id) {
 		logger.info("Codigo : {}", id);
 		Produto produto = new Produto();
@@ -45,22 +49,24 @@ public class ProdutoDaoImpl extends DaoGenerico<Integer, Produto> implements Pro
 		remove(produto);
 	}
 
+	@Override
+	public List<Produto> listarTodos() {
+		Produto produto = null;
+		logger.info("Lista todos os produtos {}" + produto);
+		return findAll(Produto.class);
+	}
+	
 	@SuppressWarnings("unchecked")
-	public List<Produto> listarPorId() {
-		Criteria criteria = createEntityCriteria().addOrder(Order.desc("id"));
+	@Override
+	public List<Produto> listarPorModelo() {
+		Criteria criteria = createEntityCriteria().addOrder(Order.desc("modelo"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-		List<Produto> produtos = (List<Produto>) criteria.list();
+		List<Produto> produtos = criteria.list();
 		for(Produto p : produtos) {
-			logger.info("Lista de produto:: " + p);
+			logger.info("Lista de produtos por modelo {}" + p);
 		}
 		
 		return produtos;
-	}
-	
-	public List<Produto> listarTodos() {
-		Produto produto = null;
-		logger.info("Lista de produto: " + produto);
-		return findAll(Produto.class);
 	}
 
 	

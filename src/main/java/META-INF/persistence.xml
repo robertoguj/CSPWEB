@@ -5,11 +5,12 @@
 	<persistence-unit name="CSPWEB" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
+		<class>com.cspecem.model.Equipamento</class>
 		<class>com.cspecem.model.PersistentLogin</class>
 		<class>com.cspecem.model.Person</class>
 		<class>com.cspecem.model.Produto</class>
-		<class>com.cspecem.model.Usuario</class>
 		<class>com.cspecem.model.Profile</class>
+		<class>com.cspecem.model.Usuario</class>
 		
 		<properties>
 			<property name="hibernate.show_sql" value="true" />

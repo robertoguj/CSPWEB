@@ -17,21 +17,30 @@ public class ProdutoServiceImpl implements ProdutoService {
 	@Autowired
 	ProdutoDao produtoDAO;
 
+	@Override
 	public Produto buscarPorId(int id) {
 		return produtoDAO.buscaPorId(id);
 	}
 
+	@Override
 	public void salvar(Produto produto) {
 		produtoDAO.salvar(produto);	
 	}
 
+	@Override
 	public void remover(int id) {
 		produtoDAO.remover(id);
 		
 	}
 	
+	@Override
 	public List<Produto> listarTodos() {
 		return produtoDAO.listarTodos();
+	}
+
+	@Override
+	public List<Produto> listarPorModelo() {
+		return produtoDAO.listarPorModelo();
 	}
 
 

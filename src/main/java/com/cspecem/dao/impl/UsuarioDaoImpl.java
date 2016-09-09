@@ -19,7 +19,7 @@ public class UsuarioDaoImpl extends DaoGenerico<Integer, Usuario> implements Usu
 
 	static final Logger logger = LoggerFactory.getLogger(UsuarioDaoImpl.class);
 	
-	public Usuario findById(int id) {
+	public Usuario encontrarPorId(int id) {
 		Usuario user = fetchById(id);
 		if(user!=null){
 			Hibernate.initialize(user.getUserProfiles());
@@ -27,7 +27,7 @@ public class UsuarioDaoImpl extends DaoGenerico<Integer, Usuario> implements Usu
 		return user;
 	}
 
-	public Usuario findBySSO(String sso) {
+	public Usuario encontrarPorSSO(String sso) {
 		logger.info("SSO : {}", sso);
 		Criteria crit = createEntityCriteria();
 		crit.add(Restrictions.eq("ssoId", sso));
@@ -39,7 +39,7 @@ public class UsuarioDaoImpl extends DaoGenerico<Integer, Usuario> implements Usu
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Usuario> findAllUsers() {
+	public List<Usuario> encontrarTodos() {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("firstName"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
 		List<Usuario> users = (List<Usuario>) criteria.list();
@@ -53,11 +53,11 @@ public class UsuarioDaoImpl extends DaoGenerico<Integer, Usuario> implements Usu
 		return users;
 	}
 
-	public void salvar(Usuario user) {
-		save(user);
+	public void salvar(Usuario usuario) {
+		save(usuario);
 	}
 
-	public void deleteBySSO(String sso) {
+	public void deletarPorSSO(String sso) {
 		Criteria crit = createEntityCriteria();
 		crit.add(Restrictions.eq("ssoId", sso));
 		Usuario user = (Usuario)crit.uniqueResult();

@@ -26,17 +26,8 @@
  
         				<li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">shuffle</i></span><span>Equipamento</span></a>
         					<ul class="acc-menu">
-        						<li><a  class="withripple" href="cards.html">Cards</a></li>
-								<li><a  class="withripple" href="ui-panels.html">Panels</a></li>
-        						<li><a  class="withripple" href="ui-tiles.html">Tiles</a></li>
-        						<li><a  class="withripple" href="custom-skylo.html">Page Progress</a></li>
-        						<li><a  class="withripple" href="custom-bootbox.html">Bootbox</a></li>
-        						<li><a  class="withripple" href="custom-pines.html">Notification</a></li>
-        						<li><a  class="withripple" href="custom-pulsate.html">Pulsate</a></li>
-								<li><a  class="withripple" href="custom-knob.html">jQuery Knob</a></li>
-								<li><a  class="withripple" href="custom-slider.html">Slider</a></li>
-								<li><a  class="withripple" href="custom-list.html">Lists</a></li>
-
+        						<li><a  class="withripple" href="<c:url value='/equipamento/add' />">Cadastrar Equipamento</a></li>
+								<li><a  class="withripple" href="<c:url value='/equipamentos' />">Listar Equipamento</a></li>
         					</ul>
         				</li>
 <!--		

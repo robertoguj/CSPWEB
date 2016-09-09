@@ -22,11 +22,11 @@ public class UsuarioServiceImpl implements UsuarioService{
     private PasswordEncoder passwordEncoder;
 	
 	public Usuario findById(int id) {
-		return dao.findById(id);
+		return dao.encontrarPorId(id);
 	}
 
 	public Usuario findBySSO(String sso) {
-		Usuario user = dao.findBySSO(sso);
+		Usuario user = dao.encontrarPorSSO(sso);
 		return user;
 	}
 
@@ -41,7 +41,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	 * It will be updated in db once transaction ends. 
 	 */
 	public void updateUser(Usuario user) {
-		Usuario entity = dao.findById(user.getId());
+		Usuario entity = dao.encontrarPorId(user.getId());
 		if(entity!=null){
 			entity.setSsoId(user.getSsoId());
 			if(!user.getPassword().equals(entity.getPassword())){
@@ -56,11 +56,11 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	
 	public void deleteUserBySSO(String sso) {
-		dao.deleteBySSO(sso);
+		dao.deletarPorSSO(sso);
 	}
 
 	public List<Usuario> findAllUsers() {
-		return dao.findAllUsers();
+		return dao.encontrarTodos();
 	}
 
 	public boolean isUserSSOUnique(Integer id, String sso) {
