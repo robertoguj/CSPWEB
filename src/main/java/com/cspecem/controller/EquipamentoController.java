@@ -11,9 +11,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.cspecem.model.Equipamento;
+import com.cspecem.model.Produto;
 import com.cspecem.service.EquipamentoService;
 import com.cspecem.service.ProdutoService;
 
@@ -41,15 +41,12 @@ public class EquipamentoController {
 	public String adicionar(ModelMap model) {
 		
 		model.addAttribute("equipamento", new Equipamento());
+		model.addAttribute("produto", new Produto());
+		model.addAttribute("listaProdutos", this.produtoService.listarTodos());
+		
 		return "equipamento/equipamentoForm";
 	}
 	
-	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public ModelAndView produtos(ModelAndView mav) {
-		mav.setViewName("list");
-		mav.addObject("produtos", this.produtoService.listarPorModelo());
-		return mav;
-	}
 	
 	@RequestMapping(value={"/equipamento/add"}, method=RequestMethod.POST)
 	public String saveOrUpdate(@Valid Equipamento equipamento, BindingResult resultado, ModelMap model) {
