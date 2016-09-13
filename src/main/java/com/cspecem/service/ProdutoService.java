@@ -14,6 +14,6 @@ public interface ProdutoService {
 	
 	List<Produto> listarTodos();
 	
-	List<Produto> listarPorModelo();
+	List<Produto> listarPorFabricante();
 
 }

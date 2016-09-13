@@ -13,9 +13,9 @@ import com.cspecem.service.ProfileService;
  * A converter class used in views to map id's to actual userProfile objects.
  */
 @Component
-public class RoleToUserProfileConverter implements Converter<Object, Profile>{
+public class ProfileConverter implements Converter<Object, Profile>{
 
-	static final Logger logger = LoggerFactory.getLogger(RoleToUserProfileConverter.class);
+	static final Logger logger = LoggerFactory.getLogger(ProfileConverter.class);
 	
 	@Autowired
 	ProfileService profileService;

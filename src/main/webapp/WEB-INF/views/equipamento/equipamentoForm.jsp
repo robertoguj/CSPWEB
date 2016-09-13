@@ -62,9 +62,7 @@
 	                        <div class="col-sm-6">
 	                            <form:select path="produto" id="produto" class="form-control">
     								<form:option value="none">--SELECT--</form:option>
-    								<c:forEach var="produto" items="${listaProdutos}">
-        								<form:option value="${produto.id}">${produto.fabricante} - ${produto.modelo}</form:option> <!-- acessando o bean, neste caso, o atributo modelo do produto-->
-    								</c:forEach>
+    								<form:options itemValue="id" items="${listaProdutos}" itemLabel="modelo" />
     							</form:select>
 	                            <div class="has-error">
 									<form:errors path="produto" class="help-inline"/>

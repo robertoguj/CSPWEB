@@ -58,8 +58,8 @@ public class ProdutoDaoImpl extends DaoGenerico<Integer, Produto> implements Pro
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Produto> listarPorModelo() {
-		Criteria criteria = createEntityCriteria().addOrder(Order.desc("modelo"));
+	public List<Produto> listarPorFabricante() {
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("fabricante"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Produto> produtos = criteria.list();
 		for(Produto p : produtos) {

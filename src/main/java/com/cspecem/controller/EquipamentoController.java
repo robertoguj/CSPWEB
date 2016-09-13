@@ -42,7 +42,7 @@ public class EquipamentoController {
 		
 		model.addAttribute("equipamento", new Equipamento());
 		model.addAttribute("produto", new Produto());
-		model.addAttribute("listaProdutos", this.produtoService.listarTodos());
+		model.addAttribute("listaProdutos", this.produtoService.listarPorFabricante());
 		
 		return "equipamento/equipamentoForm";
 	}

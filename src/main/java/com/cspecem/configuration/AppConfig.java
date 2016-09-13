@@ -15,7 +15,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import com.cspecem.converter.RoleToUserProfileConverter;
+import com.cspecem.converter.ProdutoConverter;
+import com.cspecem.converter.ProfileConverter;
 
 @Configuration
 @EnableWebMvc
@@ -24,7 +25,10 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 	
 	
 	@Autowired
-	RoleToUserProfileConverter roleToUserProfileConverter;
+	ProfileConverter profileConverter;
+	
+	@Autowired
+	ProdutoConverter produtoConverter;
 
 	/**
      * Configure ViewResolvers to deliver preferred views.
@@ -53,7 +57,8 @@ public class AppConfig extends WebMvcConfigurerAdapter{
      */
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(roleToUserProfileConverter);
+        registry.addConverter(profileConverter);
+        registry.addConverter(produtoConverter);
     }
 	
 

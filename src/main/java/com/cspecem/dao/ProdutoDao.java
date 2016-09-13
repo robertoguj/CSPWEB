@@ -16,6 +16,6 @@ public interface ProdutoDao {
 	
 	List<Produto> listarTodos();
 	
-	List<Produto> listarPorModelo();
+	List<Produto> listarPorFabricante();
 
 }
