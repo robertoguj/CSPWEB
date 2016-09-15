@@ -61,7 +61,7 @@
 	                        <label class="col-sm-3 control-label" for="produto">Produto</label>
 	                        <div class="col-sm-6">
 	                            <form:select path="produto" id="produto" class="form-control">
-    								<form:option value="none">--SELECT--</form:option>
+    								
     								<form:options itemValue="id" items="${listaProdutos}" itemLabel="modelo" />
     							</form:select>
 	                            <div class="has-error">
@@ -82,7 +82,7 @@
 						    <label class="col-sm-3 control-label" for="area">Área</label>
 						    <div class="col-sm-6">
 						        <form:select  path="area" id="area" class="form-control">
-    								<form:option value="none">--SELECT--</form:option>
+    								<form:option value="0">--SELECT--</form:option>
     								<form:option value="Coke">Coke Making Plant</form:option>
     								<form:option value="Sinter">Sinter plant</form:option>
     								<form:option value="BF">Blast Furnace</form:option>
@@ -107,15 +107,8 @@
 						    <label class="col-sm-3 control-label" for="subarea">Sub-área</label>
 						    <div class="col-sm-6">
 						        <form:select  path="subarea" id="subarea" class="form-control">
-    								<form:option value="none">--SELECT--</form:option>
-    								<form:option value="COP">COP</form:option>
-    								<form:option value="CPCT">CPCT</form:option>
-    								<form:option value="GTP">GTP</form:option>
-    								<form:option value="Water Treatment">Water Treatment</form:option>
-    								<form:option value="Environment">Meio Ambiente</form:option>
-    								<form:option value="RMTC">RMTC</form:option>
-    								<form:option value="Chemical">Chemical</form:option>
-    								<form:option value="Iron Steel">Iron Steel</form:option>
+    								<form:option value="0" label="--SELECT--" />
+    								<form:options items="${subareaLista}" />
     							</form:select>
     							<div class="has-error">
 									<form:errors path="subarea" class="help-inline"/>
@@ -126,7 +119,7 @@
 						    <label class="col-sm-3 control-label" for="local">Local</label>
 						    <div class="col-sm-6">
 						        <form:select  path="local" id="local" class="form-control">
-    								<form:option value="none">--SELECT--</form:option>
+    								<form:option value="0">--SELECT--</form:option>
     								<form:option value="Computer Room">Computer Room</form:option>
     								<form:option value="PLC Room">PLC Room</form:option>
     								<form:option value="Operation Room">Operation Room</form:option>

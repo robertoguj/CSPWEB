@@ -10,18 +10,17 @@ import com.cspecem.model.Produto;
 import com.cspecem.service.ProdutoService;
 
 @Component
-public class ProdutoConverter implements Converter<Object, Produto> {
+public class ProdutoConverter implements Converter<String, Produto> {
 
 	static final Logger logger = LoggerFactory.getLogger(ProdutoConverter.class);
 			
 	@Autowired
 	ProdutoService produtoService;
-	
-	public Produto convert(Object element) {
-		Integer id = Integer.parseInt((String)element);
-		Produto produto = produtoService.buscarPorId(id);
-		logger.info("Profile : {}", produto);
-		return produto;
+
+	@Override
+	public Produto convert(String id) {
+		return produtoService.buscarPorId(Integer.parseInt(id));
 	}
+	
 
 }
