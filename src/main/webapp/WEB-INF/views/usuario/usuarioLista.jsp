@@ -73,13 +73,13 @@
 														<c:forEach items="${usuarios}" var="usuario">
 															<tr>
 																<sec:authorize access="hasRole('ADMIN')">
-																	<td><a href="<c:url value='/deleta-usuario-${usuario.ssoId}' />" onclick="return confirm('Tem certeza de que deseja excluir este item?');" class="btn-danger">${usuario.id}</a></td>
+																	<td><a href="<c:url value='/usuario/deletar/${usuario.ssoId}' />" onclick="return confirm('Tem certeza de que deseja excluir este item?');" class="btn-danger">${usuario.id}</a></td>
 																</sec:authorize>
 																<td>${usuario.firstName}</td>
 																<td>${usuario.lastName}</td>
 																<td>${usuario.email}</td>
 																<sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
-																	<td><a href="<c:url value='/edita-usuario-${usuario.ssoId}' />" class="btn-success">${usuario.ssoId}</a></td>
+																	<td><a href="<c:url value='/usuario/editar/${usuario.ssoId}' />" class="btn-success">${usuario.ssoId}</a></td>
 																</sec:authorize>
 															</tr>
 													</c:forEach>

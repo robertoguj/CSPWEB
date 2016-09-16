@@ -50,7 +50,7 @@ public class ProdutoDaoImpl extends DaoGenerico<Integer, Produto> implements Pro
 	}
 
 	@Override
-	public List<Produto> listarTodos() {
+	public List<Produto> listar() {
 		Produto produto = null;
 		logger.info("Lista todos os produtos {}" + produto);
 		return findAll(Produto.class);
@@ -63,7 +63,7 @@ public class ProdutoDaoImpl extends DaoGenerico<Integer, Produto> implements Pro
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		List<Produto> produtos = criteria.list();
 		for(Produto p : produtos) {
-			logger.info("Lista de produtos por modelo {}" + p);
+			logger.info("Produtos por modelo {}" + p);
 		}
 		
 		return produtos;

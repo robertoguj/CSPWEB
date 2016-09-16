@@ -14,8 +14,7 @@ public interface ProdutoDao {
 	
 	void remover(int id);
 	
-	List<Produto> listarTodos();
-	
+	List<Produto> listar();
 	List<Produto> listarPorFabricante();
 
 }

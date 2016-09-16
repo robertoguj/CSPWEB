@@ -5,7 +5,9 @@
 	<persistence-unit name="CSPWEB" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
+		<class>com.cspecem.model.Area</class>
 		<class>com.cspecem.model.Equipamento</class>
+		<class>com.cspecem.model.Departamento</class>
 		<class>com.cspecem.model.PersistentLogin</class>
 		<class>com.cspecem.model.Person</class>
 		<class>com.cspecem.model.Produto</class>

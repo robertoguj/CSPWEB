@@ -24,10 +24,10 @@ public class ProdutoController extends AbstractController {
 	ProdutoService produtoService;
 
 	@RequestMapping(value = {"/produtos" }, method = RequestMethod.GET)
-	public String listarProdutos(ModelMap model) {
+	public String listar(ModelMap model) {
 
 		model.addAttribute("produto", new Produto());
-		model.addAttribute("listaProdutos", this.produtoService.listarTodos());
+		model.addAttribute("produtos", this.produtoService.listar());
 		return "produto/produtoLista";
 		
 	}
@@ -36,26 +36,26 @@ public class ProdutoController extends AbstractController {
 	 * Este método irá fornecer o meio para adicionar um novo usuário.
 	 */
 	@RequestMapping(value={"/produto/add"}, method = RequestMethod.GET)
-	public String novoProduto(ModelMap model) {
+	public String adicionar(ModelMap model) {
 		model.addAttribute("produto", new Produto());
 		model.addAttribute("usuarioLogado", getPrincipal());
-		return "produto/produtoRegistro";
+		return "produto/produtoForm";
 	}
 
 	/**
 	 * Este método irá fornecer o meio para adicionar um novo produto.
 	 */
 	@RequestMapping(value = { "/produto/add" }, method = RequestMethod.POST)
-	public String saveOrUpdateProduto(@Valid Produto produto, BindingResult resultado, ModelMap model) {
+	public String saveOrUpdate(@Valid Produto produto, BindingResult resultado, ModelMap model) {
 		
 		logger.debug("saveOrUpdateProduto() : {}", produto);
 		
 		if (resultado.hasErrors()) {
-			return "produto/produtoRegistro";
+			return "produto/produtoForm";
 			
 		}			
 		
-		produtoService.salvar(produto);
+		this.produtoService.salvar(produto);
 		model.addAttribute("sucesso", "Salvo com sucesso.");
 		
 		return "produto/produtoSucesso";
@@ -63,20 +63,19 @@ public class ProdutoController extends AbstractController {
 	}
 
 	
-	@RequestMapping(value = { "/removerProduto/{id}" })
-	public String deletarProduto(@PathVariable("id") int id) {
-	
+	@RequestMapping(value = { "/produto/remover/{id}" })
+	public String deletar(@PathVariable("id") int id) {
 		this.produtoService.remover(id);
         return "redirect:/produtos";
 
 	}
 	
-	@RequestMapping(value = { "/editarProduto/{id}" })
-	public String editarProduto(ModelMap model, @PathVariable("id") int id) {
+	@RequestMapping(value = { "/produto/editar/{id}" })
+	public String editar(ModelMap model, @PathVariable("id") int id) {
 
 		model.addAttribute("produto", this.produtoService.buscarPorId(id));
-        model.addAttribute("listaProdutos", this.produtoService.listarTodos());
-        return "produto/produtoRegistro";
+        model.addAttribute("produtos", this.produtoService.listar());
+        return "produto/produtoForm";
 		
 	}
 

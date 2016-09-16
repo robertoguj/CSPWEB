@@ -127,13 +127,13 @@ public class UsuarioController extends AbstractController {
 		model.addAttribute("sucesso", "Salvo com sucesso.");
 		model.addAttribute("usuarioLogado", getPrincipal());
 		
-		return "usuario/usuarioRegistroSucesso";
+		return "usuario/usuarioSucesso";
 	}
 
 	/**
 	 * Este método irá fornecer o meio para atualizar um usuário existente.
 	 */
-	@RequestMapping(value = { "/edita-usuario-{ssoId}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/usuario/editar/{ssoId}" }, method = RequestMethod.GET)
 	public String editar(@PathVariable String ssoId, ModelMap model) {
 		Usuario usuario = userService.findBySSO(ssoId);
 		model.addAttribute("usuario", usuario);
@@ -146,7 +146,7 @@ public class UsuarioController extends AbstractController {
 	 * Este método será chamado no envio do formulário, tratamento de solicitação POST para atualizar o usuário no banco de dados.
 	 * Ele também valida a entrada do usuário.
 	 */
-	@RequestMapping(value = { "/edita-usuario-{ssoId}" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/usuario/editar/{ssoId}" }, method = RequestMethod.POST)
 	public String atualizar(@Valid Usuario usuario, BindingResult result, ModelMap model, @PathVariable String ssoId) {
 
 		if (result.hasErrors()) {
@@ -158,13 +158,13 @@ public class UsuarioController extends AbstractController {
 		model.addAttribute("sucesso", "Salvo com sucesso.");
 		model.addAttribute("usuarioLogado", getPrincipal());
 		
-		return "usuario/usuarioRegistroSucesso";
+		return "usuario/usuarioSucesso";
 	}
 
 	/**
 	 * Este método irá apagar um usuário pelo seu valor SSOID.
 	 */
-	@RequestMapping(value = { "/deleta-usuario-{ssoId}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/usuario/deletar/{ssoId}" }, method = RequestMethod.GET)
 	public String deletar(@PathVariable String ssoId) {
 		userService.deleteUserBySSO(ssoId);
 		return "redirect:/usuarios";

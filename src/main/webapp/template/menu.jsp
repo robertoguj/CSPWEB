@@ -30,33 +30,24 @@
 								<li><a  class="withripple" href="<c:url value='/equipamentos' />">Listar Equipamento</a></li>
         					</ul>
         				</li>
-<!--		
-						<li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">create</i></span><span>Manutenção</span></a>
+
+						<li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">create</i></span><span>Cadastro</span></a>
 							<ul class="acc-menu">
-								<li><a  class="withripple" href="ui-forms.html">Form Layout</a></li>
-								<li><a  class="withripple" href="form-components.html">Form Components</a></li>
-								<li><a  class="withripple" href="form-pickers.html">Pickers</a></li>
-								<li><a  class="withripple" href="form-wizard.html">Form Wizard</a></li>
-								<li><a  class="withripple" href="form-validation.html">Form Validation</a></li>
-								<li><a  class="withripple" href="form-masks.html">Form Masks</a></li>
-								<li><a  class="withripple" href="form-dropzone.html">Dropzone Uploader</a></li>
-								<li><a  class="withripple" href="form-summernote.html">Summernote</a></li>
-								<li><a  class="withripple" href="form-markdown.html">Markdown Editor</a></li>
-								<li><a  class="withripple" href="form-xeditable.html">Inline Editor</a></li>
-								<li><a  class="withripple" href="form-gridforms.html">Grid Forms</a></li>
+								<li><a  class="withripple" href="<c:url value='/areas' />">Áreas</a></li>
+								<li><a  class="withripple" href="<c:url value='/departamentos' />">Departamentos</a></li>
+								<li><a  class="withripple" href="<c:url value='/produto/add' />">Produtos</a></li>
+								<li><a  class="withripple" href="<c:url value='/equipamento/add' />">Equipamentos</a></li>
 							</ul>
 						</li>
 
-						<li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">apps</i></span><span>Tables</span></a>
+<!--
+						<li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">apps</i></span><span>Consultas</span></a>
 							<ul class="acc-menu">
-								<li><a  class="withripple" href="ui-tables.html">Basic Tables</a></li>
-								<li><a  class="withripple" href="tables-responsive.html">Responsive Tables</a></li>
-								<li><a  class="withripple" href="tables-editable.html">Editable Tables</a></li>
-								<li><a  class="withripple" href="tables-data.html">Data Tables</a></li>
-								<li><a  class="withripple" href="tables-fixedheader.html">Fixed Header Tables</a></li>
+								<li><a  class="withripple" href="<c:url value='/produtos' />">Produtos</a></li>
+								<li><a  class="withripple" href="<c:url value='/equipamentos' />">Equipamentos</a></li>
 							</ul>
 						</li>
-		
+ 		
 						<li><a  class="withripple" href="javascript:;"><span class="icon"><i class="material-icons">show_chart</i></span><span>Analytics</span></a>
 							<ul class="acc-menu">
 								<li><a  class="withripple" href="charts-flot.html">Flot</a></li>

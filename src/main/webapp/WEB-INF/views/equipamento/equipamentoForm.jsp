@@ -61,7 +61,7 @@
 	                        <label class="col-sm-3 control-label" for="produto">Produto</label>
 	                        <div class="col-sm-6">
 	                            <form:select path="produto" id="produto" class="form-control">
-    								
+    								<form:option value="0" label="--SELECT--" />
     								<form:options itemValue="id" items="${listaProdutos}" itemLabel="modelo" />
     							</form:select>
 	                            <div class="has-error">

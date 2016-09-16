@@ -77,7 +77,7 @@ $(document).ready(function() {
 					
 				</div>
 				<div class="panel-body no-padding">
-					<c:if test="${!empty listaProdutos}">
+					<c:if test="${!empty produtos}">
 					<table id="example1" class="table table-striped table-bordered">
 						<thead>
 		      		<tr>
@@ -92,15 +92,15 @@ $(document).ready(function() {
 					</tr>
 		    	</thead>
 	    		<tbody>
-				<c:forEach items="${listaProdutos}" var="produto">
+				<c:forEach items="${produtos}" var="produto">
 					<tr>
 						<sec:authorize access="hasRole('ADMIN')">
-							<td width="30px;"><a href="<c:url value='/removerProduto/${produto.id}' />" class="btn-danger" onclick="return confirm('Tem certeza de que deseja excluir este item?');">${produto.id}</a></td>
+							<td width="30px;"><a href="<c:url value='/produto/remover/${produto.id}' />" class="btn-danger" onclick="return confirm('Tem certeza de que deseja excluir este item?');">${produto.id}</a></td>
         				</sec:authorize>						
 						<td width="150px;">${produto.codigo}</td>
 						<td>${produto.nome}</td>
 						<td width="100px;">${produto.fabricante}</td>
-						<td width="200px;"><a href="<c:url value='/editarProduto/${produto.id}' />" class="btn-success">${produto.modelo}</a></td>
+						<td width="200px;"><a href="<c:url value='/produto/editar/${produto.id}' />" class="btn-success">${produto.modelo}</a></td>
 						<td>${produto.descricao}</td>
 					</tr>
 				</c:forEach>

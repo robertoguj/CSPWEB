@@ -15,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import com.cspecem.converter.AreaConverter;
 import com.cspecem.converter.ProdutoConverter;
 import com.cspecem.converter.ProfileConverter;
 
@@ -29,6 +30,9 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 	
 	@Autowired
 	ProdutoConverter produtoConverter;
+	
+	@Autowired
+	AreaConverter areaConverter;
 
 	/**
      * Configure ViewResolvers to deliver preferred views.
@@ -59,6 +63,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     public void addFormatters(FormatterRegistry registry) {
         registry.addConverter(profileConverter);
         registry.addConverter(produtoConverter);
+        registry.addConverter(areaConverter);
     }
 	
 

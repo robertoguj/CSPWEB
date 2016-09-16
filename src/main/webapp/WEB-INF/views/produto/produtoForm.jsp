@@ -110,10 +110,10 @@
 								<div class="col-sm-8 col-sm-offset-2">
 							
 							<c:if test="${!empty produto.nome}">
-								<input type="submit" value="<spring:message text="Atualizar"/>" class="btn-raised btn-success btn" /> <a href="<c:url value='/home' />" class="btn-default btn">Cancelar </a>
+								<input type="submit" value="<spring:message text="Atualizar"/>" class="btn-raised btn-success btn" /> <a href="<c:url value='/produtos' />" class="btn-default btn">Cancelar </a>
 							</c:if>
 							<c:if test="${empty produto.nome}">
-								<input type="submit" value="<spring:message text="Salvar"/>" class="btn-raised btn-success btn" /> <input type="reset" class="btn-inverse btn" value="Limpar" /> <a href="<c:url value='/home' />" class="btn-default btn">Cancelar </a>
+								<input type="submit" value="<spring:message text="Salvar"/>" class="btn-raised btn-success btn" /> <input type="reset" class="btn-inverse btn" value="Limpar" /> <a href="<c:url value='/produtos' />" class="btn-default btn">Cancelar </a>
 							</c:if>
 
 						</div>

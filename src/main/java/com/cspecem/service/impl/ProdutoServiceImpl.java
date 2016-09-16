@@ -34,8 +34,8 @@ public class ProdutoServiceImpl implements ProdutoService {
 	}
 	
 	@Override
-	public List<Produto> listarTodos() {
-		return produtoDAO.listarTodos();
+	public List<Produto> listar() {
+		return produtoDAO.listar();
 	}
 
 	@Override

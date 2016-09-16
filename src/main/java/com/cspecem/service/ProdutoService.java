@@ -12,8 +12,7 @@ public interface ProdutoService {
 	
 	void remover(int id);
 	
-	List<Produto> listarTodos();
-	
+	List<Produto> listar();
 	List<Produto> listarPorFabricante();
 
 }

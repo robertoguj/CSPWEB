@@ -81,8 +81,9 @@ public class EquipamentoController {
 		subarea.put("Iron Steel", "Iron Steel");
 		return subarea;
 	}
+
 	
-	@RequestMapping(value={"/removerEquipamento/{id}"})
+	@RequestMapping(value={"/equipamento/remover/{id}"})
 	public String deletar(@PathVariable("id") int id) {
 		
 		this.equipamentoService.remover(id);
@@ -90,11 +91,10 @@ public class EquipamentoController {
 	}
 	
 	
-	@RequestMapping(value={"/editarEquipamento/{id}"})
+	@RequestMapping(value={"/equipamento/editar/{id}"})
 	public String editar(ModelMap model, @PathVariable("id") int id) {
 		
 		model.addAttribute("equipamento", this.equipamentoService.encontrarPorId(id));
-		model.addAttribute("produto", new Produto());
 		model.addAttribute("listaProdutos", this.produtoService.listarPorFabricante());
 		popularSubareaLista();
 		model.addAttribute("equipamentos", this.equipamentoService.listarTodos());

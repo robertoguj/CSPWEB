@@ -99,9 +99,9 @@ $(document).ready(function() {
 				<c:forEach items="${equipamentos}" var="equip">
 					<tr>
 						<sec:authorize access="hasRole('ADMIN')">
-							<td width="30px;"><a href="<c:url value='/removerEquipamento/${equip.id}' />" class="btn-danger" onclick="return confirm('Tem certeza de que deseja excluir este item?');">${equip.id}</a></td>
+							<td width="30px;"><a href="<c:url value='/equipamento/remover/${equip.id}' />" class="btn-danger" onclick="return confirm('Tem certeza de que deseja excluir este item?');">${equip.id}</a></td>
         				</sec:authorize>						
-						<td width="200px;"><a href="<c:url value='/editarEquipamento/${equip.id}' />" class="btn-success">${equip.numeroSerie}</a></td>
+						<td width="200px;"><a href="<c:url value='/equipamento/editar/${equip.id}' />" class="btn-success">${equip.numeroSerie}</a></td>
 						<td>${equip.area}</td>
 						<td>${equip.subarea}</td>
 						<td>${equip.local}</td>

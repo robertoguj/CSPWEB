@@ -19,6 +19,8 @@ public class ProdutoConverter implements Converter<String, Produto> {
 
 	@Override
 	public Produto convert(String id) {
+		Produto produto = new Produto();
+		logger.info("Produto: {}", produto);
 		return produtoService.buscarPorId(Integer.parseInt(id));
 	}
 	
